@@ -3,7 +3,7 @@ function myMap() {
   const cairo = { lat: 30.0444, lng: 31.2357 };
 
   const startTime = Date.parse("06 May 2022 05:00:00");
-  const endTime = Date.parse("06 May 2022 07:00:00");
+  const endTime = Date.parse("09 May 2022 05:00:00");
   const time = Date.now();
   const t = (time - startTime) / (endTime - time);
   const currentLat = t * cairo.lat + (1 - t) * chicago.lat;
