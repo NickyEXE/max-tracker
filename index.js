@@ -2,16 +2,12 @@ function myMap() {
   const chicago = { lat: 41.7886, lng: -87.5987 };
   const cairo = { lat: 30.0444, lng: 31.2357 };
 
-  const startTime = Date.parse("06 May 2022 00:04:00");
-  const endTime = Date.parse("08 May 2022 00:17:00");
-  const totalTime = endTime - startTime;
+  const startTime = Date.parse("06 May 2022 05:00:00");
+  const endTime = Date.parse("06 May 2022 07:00:00");
   const time = Date.now();
-  const latDifference = cairo.lat - chicago.lat;
-  const lngDifference = cairo.lng - chicago.lng;
-  const currentLat =
-    (latDifference * (time - startTime)) / totalTime + cairo.lat;
-  const currentLng =
-    (lngDifference * (time - startTime)) / totalTime + cairo.lat;
+  const t = (time - startTime) / (endTime - time);
+  const currentLat = t * cairo.lat + (1 - t) * chicago.lat;
+  const currentLng = t * cairo.lng + (1 - t) * chicago.lng;
 
   var mapProp = {
     center: new google.maps.LatLng(currentLat, currentLng),
